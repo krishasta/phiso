@@ -1,0 +1,156 @@
+/* ===========================
+   Body Map Section
+   =========================== */
+.bodymap-section {
+  background-color: var(--bg-secondary);
+  padding: 100px 0;
+}
+
+/* ===========================
+   Image container — POSITION RELATIVE
+   so dots can be placed absolutely on top
+   =========================== */
+.bodymap-image-wrapper {
+  position: relative;          /* ← critical */
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  user-select: none;
+  line-height: 0;              /* removes inline gap under img */
+}
+
+.anatomy-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .anatomy-img {
+  filter: brightness(0.72) saturate(0.85);
+}
+
+/* ===========================
+   Pain Dot — absolutely positioned
+   using left/top as % of wrapper
+   =========================== */
+.pain-dot-wrapper {
+  position: absolute;          /* ← sits on top of image */
+  transform: translate(-50%, -50%);
+  cursor: crosshair;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer pulsing glow ring */
+.dot-glow {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.2);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.pain-dot-wrapper:hover .dot-glow,
+.pain-dot-wrapper.active .dot-glow {
+  transform: scale(2.4);
+  opacity: 1;
+}
+
+/* Core dot — always faintly visible */
+.dot-core {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.45);
+  border: 2px solid rgba(220, 38, 38, 0.7);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+.pain-dot-wrapper:hover .dot-core,
+.pain-dot-wrapper.active .dot-core {
+  background: #dc2626;
+  border-color: #dc2626;
+  transform: scale(1.5);
+}
+
+/* ===========================
+   Tooltip label
+   =========================== */
+.dot-label {
+  position: absolute;
+  top: 50%;
+  white-space: nowrap;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 13px;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  letter-spacing: 0.3px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+}
+
+/* Label to the RIGHT of dot */
+.dot-label.label-right {
+  left: calc(100% + 10px);
+  transform: translateY(-50%) translateX(-6px);
+}
+.dot-label.label-right.label-visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.dot-label.label-right::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: var(--primary);
+  border-left: none;
+}
+
+/* Label to the LEFT of dot */
+.dot-label.label-left {
+  right: calc(100% + 10px);
+  transform: translateY(-50%) translateX(6px);
+}
+.dot-label.label-left.label-visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.dot-label.label-left::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--primary);
+  border-right: none;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  .bodymap-image-wrapper {
+    max-width: 100%;
+  }
+  .dot-label {
+    font-size: 0.68rem;
+    padding: 4px 9px;
+  }
+}

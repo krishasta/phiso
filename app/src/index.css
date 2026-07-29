@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Color Palette - Physiotherapy Theme (Teal & Mint) */
+  --primary: #005f73; /* Deep Teal */
+  --primary-light: #0a9396;
+  --secondary: #94d2bd; /* Mint Green */
+  --accent: #e9d8a6; /* Warm Accent */
+  
+  --bg-color: #f8f9fa; /* Off white */
+  --bg-secondary: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --white: #ffffff;
+  
+  /* Header & Footer */
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: #111827;
+  --footer-text: #f9fafb;
+  
+  /* Hero Section */
+  --hero-left-bg: #D4F1EE;
+  --hero-right-bg: #F6FCFC;
+  --hero-line: #A9DFD9;
+  --hero-text-vert: #1CA199;
+  --hero-dot: #0E8078;
+  --hero-heading: #084D48;
+  --hero-circle: #E0F2F1;
+  
+  /* UI Elements */
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --border-radius: 8px;
+}
+
+[data-theme="dark"] {
+  --primary: #2DD0C5; 
+  --primary-light: #4DEBE0;
+  --secondary: #1D786A;
+  --accent: #FFC947;
+  
+  --bg-color: #0f172a; /* Deep Slate */
+  --bg-secondary: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --white: #ffffff;
+  
+  /* Header & Footer */
+  --header-bg: rgba(15, 23, 42, 0.95);
+  --footer-bg: #0b1120;
+  --footer-text: #f8fafc;
+  
+  /* Hero Section */
+  --hero-left-bg: #0A2624;
+  --hero-right-bg: #0F171E;
+  --hero-line: #1D544F;
+  --hero-text-vert: #2DD0C5;
+  --hero-dot: #4DEBE0;
+  --hero-heading: #F6FCFC;
+  --hero-circle: #1F3634;
+  
+  /* UI Elements */
+  --border-color: #334155;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base button styles */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: #7abda8; /* Darker mint */
+  color: var(--primary);
+}
+
+section {
+  padding: 80px 0;
+}

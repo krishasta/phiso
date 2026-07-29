@@ -1,0 +1,186 @@
+.services-section {
+  background-color: var(--bg-color);
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Modern CSS Grid Layout */
+.services-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+  gap: 24px;
+}
+
+/* Grid Cell Sizing */
+.grid-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-regular {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.grid-large-horizontal {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Image Card Styling */
+.service-image-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.service-image-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.service-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+/* Zoom effect on hover */
+.service-image-card:hover .service-bg-image {
+  transform: scale(1.05);
+}
+
+/* Default gradient overlay so title is visible */
+.service-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 95, 115, 0.9) 0%, rgba(0, 95, 115, 0) 100%);
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+/* Darken on hover */
+.service-image-card:hover .service-overlay {
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 95, 115, 0.95) 0%, rgba(0, 95, 115, 0.6) 100%);
+}
+
+.service-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  z-index: 3;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.service-content h3 {
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 0;
+  transition: transform 0.4s ease;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.service-hidden-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  margin-top: 0;
+}
+
+.service-image-card:hover .service-content h3 {
+  transform: translateY(-10px);
+}
+
+.service-image-card:hover .service-hidden-content {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.service-hidden-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .services-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  
+  .grid-large-horizontal {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid-modern {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+  }
+  
+  .grid-large, .grid-regular, .grid-large-horizontal {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Button style for card */
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-outline-white:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
