@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer-container">
         <div className="footer-brand">
-          <div className="logo footer-logo">VITAL<span>PHYSIO</span></div>
+          <div className="logo footer-logo">PHYSIO<span>THERAPIST</span></div>
           <p>Dedicated to providing the highest quality physiotherapy and rehabilitation services to help you live a pain-free life.</p>
         </div>
         
@@ -32,7 +32,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} VitalPhysio. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Physiotherapist. All rights reserved.</p>
       </div>
     </footer>
   )

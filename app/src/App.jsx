@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import Services from './components/Services'
-import BodyMap from './components/BodyMap'
-import About from './components/About'
-import Blog from './components/Blog'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingContact from './components/FloatingContact'
+import HomePage from './pages/HomePage'
+import ServicesPage from './pages/ServicesPage'
+import AboutPage from './pages/AboutPage'
+import BlogPage from './pages/BlogPage'
+import ContactPage from './pages/ContactPage'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -26,12 +26,13 @@ function App() {
       <Header theme={theme} toggleTheme={toggleTheme} />
       <FloatingContact />
       <main className="main-content">
-        <HeroSection />
-        <Services />
-        <BodyMap />
-        <About />
-        <Blog />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>
