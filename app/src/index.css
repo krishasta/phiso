@@ -9,6 +9,7 @@
   
   --bg-color: #f8f9fa; /* Off white */
   --bg-secondary: #ffffff;
+  --surface-color: #ffffff;
   --text-main: #333333;
   --text-muted: #666666;
   --white: #ffffff;
@@ -46,6 +47,7 @@
   
   --bg-color: #0f172a; /* Deep Slate */
   --bg-secondary: #1e293b;
+  --surface-color: #1e293b;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --white: #ffffff;
@@ -143,4 +145,21 @@ a:hover {
 
 section {
   padding: 80px 0;
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Also animate elements inside .page-container so pages smoothly appear */
+.page-container > *, .home-page > * {
+  animation: fade-in-up 0.8s ease-out forwards;
 }
